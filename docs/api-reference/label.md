@@ -1,10 +1,8 @@
 # Label
 Label only containing text for the user to view.
 
-## Instantiation function
-```zig
-Label(.{ .text = "Test Label" })
-```
+---
+
 Config is a struct of the following type:
 ```zig
 struct {
@@ -27,3 +25,8 @@ Name | Description
 
 ## Properties
 *None... yet*
+
+## Examples
+```zig
+Label(.{ .text = "Test Label" })
+```

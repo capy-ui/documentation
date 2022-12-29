@@ -3,11 +3,8 @@ Arbitrary size area which is filled with a given color.
 
 *This widget extends [Canvas](/docs/api-reference/canvas).*
 
-## Instantiation function
-Example:
-```zig
-Rect(.{ .color = zgt.Color.yellow })
-```
+---
+
 Config is a struct of the following type:
 ```zig
 struct {
@@ -32,3 +29,9 @@ Name | Description
 `DataWrapper(Color)` field which means it can be animated easily*
 
 *Note 2: `preferredSize` however is of type `?Size`*
+
+## Examples
+Example:
+```zig
+Rect(.{ .color = Color.yellow })
+```

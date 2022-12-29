@@ -1,10 +1,8 @@
 # TextField
 Editable one-line text input box.
 
-## Instantiation function
-```zig
-TextField(.{})
-```
+---
+
 Config is a struct of the following type:
 ```zig
 struct {
@@ -26,3 +24,8 @@ Name | Type | Description
 Reminder: each property has get, set and bind methods, so there are `getText() []const u8`, `setText([]const u8)` and
 `bindText(DataWrapper([]const u8))` functions.  
 And similarly for `readOnly`
+
+## Examples
+```zig
+TextField(.{})
+```

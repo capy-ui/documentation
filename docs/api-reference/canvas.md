@@ -4,12 +4,8 @@ Arbitrary size area on which the application may draw any content.
 It also has the particularity of being the only component on which the
 draw handler works.
 
-## Instantiation function
-Example:
-```zig
-Canvas(.{})
-    .addDrawHandler(drawCanvas);
-```
+---
+
 Config is a struct of the following type:
 ```zig
 struct {};
@@ -22,8 +18,6 @@ None
 Name | Description
 ---- | -----------
 `preferredSize` | Optional `Size` giving the preferred size of the canvas
-
-*Note: `preferredSize` has not yet been migrated to use DataWrapper*
 
 ## DrawContext
 This is what is given to the handler to the `addDrawHandler` function
@@ -51,4 +45,10 @@ pub fn stroke(self: *DrawContext) void;
 
 /// Fill the current path and reset the path.
 pub fn fill(self: *DrawContext) void;
+```
+
+## Examples
+```zig
+Canvas(.{})
+    .addDrawHandler(drawCanvas);
 ```

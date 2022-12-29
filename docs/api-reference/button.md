@@ -1,5 +1,9 @@
 # Button
 
+A button you can click.
+
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -9,6 +13,7 @@ struct {
     /// The label the button will take. For example, if this is 'Test',
     /// the user will see a button which, at the center, has the text 'Test'
     label: [:0]const u8 = "",
+    enabled: bool = true,
     /// The callback that will be called when the button is pressed
     onclick: ?fn(button: *Button_Impl) = null
 };
@@ -20,7 +25,9 @@ Name | Description
 `label` | The text label which appears inside the button
 `enabled` | Whether the button can be pressed or not, defaults to `true`.
 
-## Example
+## Examples
+
+Making a button labeled 'Click Me' that changes to 'Stop!' once its clicked:
 
 <Tabs>
 <TabItem value="zig" label="Zig">

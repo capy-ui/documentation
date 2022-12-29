@@ -39,6 +39,7 @@ const config = {
           // Remove this to remove the "edit this page" links.
           // editUrl:
           //  'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl: "https://github.com/capy-ui/documentation/blob/master/"
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -54,7 +55,7 @@ const config = {
         title: 'Capy UI',
         logo: {
           alt: 'Capy',
-          src: '../capy_logo.png',
+          src: '../img/capy_big.png',
         },
         items: [
           {
@@ -66,6 +67,11 @@ const config = {
           {
             href: 'https://github.com/capy-ui/capy',
             label: 'GitHub',
+            position: 'right',
+          },
+          {
+            href: 'https://matrix.to/#/#capy-ui:matrix.org',
+            label: 'Matrix',
             position: 'right',
           },
         ],
@@ -91,7 +97,7 @@ const config = {
               },
               {
                 label: 'Matrix',
-                href: 'https://matrix.to/#/!jPJVkwYrfkAgKpCiHG:matrix.org?via=matrix.org',
+                href: 'https://matrix.to/#/#capy-ui:matrix.org',
               },
               {
                 label: 'Twitter',
