@@ -48,6 +48,3 @@ Here's a playground showing how `Align` works with a button in a 200x200 rectang
 import AlignExample from '@site/src/components/AlignExample';
 
 <AlignExample />
-
-How do you know the container (in CSS) is 200px when you're using normal layout?  
-Simple, you don't!

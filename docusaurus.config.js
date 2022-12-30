@@ -52,9 +52,9 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Capy UI',
+        title: '',
         logo: {
-          alt: 'Capy',
+          alt: 'Capy UI',
           src: '../img/capy_big.png',
         },
         items: [
