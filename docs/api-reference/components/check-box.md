@@ -21,7 +21,7 @@ struct {
 ```
 
 ## Functions
-*No non-property functions specific to CheckBox... yet*
+None specific to this component.
 
 ## Properties
 Name | Type | Description

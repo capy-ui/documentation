@@ -24,7 +24,7 @@ Name | Description
 *Note: `text` and `align` haven't been migrated to a DataWrapper yet and thus aren't properties.*
 
 ## Properties
-*None... yet*
+None.
 
 ## Examples
 ```zig

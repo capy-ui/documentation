@@ -12,12 +12,12 @@ struct {};
 ```
 
 ## Functions
-None
+None specific to this component.
 
 ## Properties
-Name | Description
----- | -----------
-`preferredSize` | Optional `Size` giving the preferred size of the canvas
+Name | Type | Description
+---- | ---- | -----------
+`preferredSize` | `?Size` | Optional `Size` giving the preferred size of the canvas
 
 ## DrawContext
 This is what is given to the handler to the `addDrawHandler` function

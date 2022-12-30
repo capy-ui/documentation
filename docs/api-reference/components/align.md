@@ -13,13 +13,13 @@ struct {
 ```
 
 ## Functions
-None
+None specific to this component.
 
 ## Properties
-Name | Description
----- | -----------
-`x`  | The horizontal alignment of the child component
-`y`  | The vertical alignment of the child component
+Name | Type | Description
+---- | ---- | -----------
+`x`  | `f32`| The horizontal alignment of the child component
+`y`  | `f32`| The vertical alignment of the child component
 
 ## Examples
 Using its default values, `Align` will center the enclosed component.

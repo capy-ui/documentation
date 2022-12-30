@@ -17,18 +17,13 @@ struct {
 ```
 
 ## Functions
-None
+None specific to this component.
 
 ## Properties
-Name | Description
----- | -----------
-`color` | The color of the rectangle
-`preferredSize` | Optional `Size` giving the preferred size of the rectangle
-
-*Note: `color` doesn't have the getColor, setColor and bindColor functions yet, but it is a
-`DataWrapper(Color)` field which means it can be animated easily*
-
-*Note 2: `preferredSize` however is of type `?Size`*
+Name | Type | Description
+---- | ---- | -----------
+`color` | `Color` | The color of the rectangle
+`preferredSize` | `?Size` | Optional `Size` giving the preferred size of the rectangle
 
 ## Examples
 Example:

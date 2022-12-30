@@ -19,11 +19,14 @@ struct {
 };
 ```
 
+## Functions
+None specific to this component.
+
 ## Properties
-Name | Description
----- | -----------
-`label` | The text label which appears inside the button
-`enabled` | Whether the button can be pressed or not, defaults to `true`.
+Name | Type | Description
+---- | ---- | -----------
+`label` | `[]const u8` | The text label which appears inside the button
+`enabled` | `bool` | Whether the button can be pressed or not, defaults to `true`.
 
 ## Examples
 

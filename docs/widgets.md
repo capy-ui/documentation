@@ -52,8 +52,6 @@ Each component also shares the following properties (alongside their respective 
 Name | Description
 ---- | -----------
 `opacity: f64` | The opacity of the component from 0 to 1. Thus, 0 means the component is fully transparent while 1 means it is opaque.
-`alignX: ?f32` | If there is more available size than preferred size and the widget is not expanded,this will determine where will the widget be located horizontally.
-`alignY: ?f32` | If there is more available size than preferred size and the widget is not expanded,this will determine where will the widget be located vertically.
 `name: ?[]const u8` | The name of the widget. It is generally used for the `Container.get()` method. *Note it doesn't have a `bindName` method*
 
 ## Handlers
