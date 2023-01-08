@@ -1,7 +1,7 @@
 # Rect
-Arbitrary size area which is filled with a given color.
+Arbitrary size area filled with a given color.
 
-*This widget extends [Canvas](/docs/api-reference/canvas).*
+*This widget extends [Canvas](canvas).*
 
 ---
 

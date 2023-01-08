@@ -4,7 +4,7 @@ sidebar_position: 0
 # Container
 Component which is capable of holding other components inside of it.
 
-It is not instantiated directly, instead you must use shorthands like [Row](row.md), [Column](column.md) or [Stack](stack.md).
+It is not instantiated directly, rather you must use shorthands like [Row](row.md), [Column](column.md) or [Stack](stack.md).
 
 ## Functions
 ### getChildAt

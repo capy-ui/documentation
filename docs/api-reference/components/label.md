@@ -21,10 +21,11 @@ Name | Description
 `fn getText() [:0]const u8` | Gets the text
 `fn setText(label: [:0]const u8) void` | Sets the text
 
-*Note: `text` and `align` haven't been migrated to a DataWrapper yet and thus aren't properties.*
-
 ## Properties
-None.
+Name | Type | Description
+---- | ----- | -----------
+`text` | `[]const u8` | The text this Label contains
+`alignment` | `TextAlignment` | How will the text occupy the available horizontal space
 
 ## Examples
 ```zig

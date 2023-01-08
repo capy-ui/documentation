@@ -1,7 +1,7 @@
 # Hello World
 
 The most basic Capy application is just a typical Zig program with a few lines required for Capy to work. For example:
-```zig title="src/main.zig" showLineNumbers
+```zig title="src/main.zig"
 const capy = @import("capy");
 pub usingnamespace capy.cross_platform;
 

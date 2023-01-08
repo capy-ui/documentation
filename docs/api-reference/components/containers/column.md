@@ -7,7 +7,20 @@ ColumnLayout arranges items vertically.
 
 Config is a struct of the following type:
 ```zig
-struct {};
+struct {
+	expand: Expand = .No,
+	/// How much spacing (in px) between elements
+	spacing: u32 = 5,
+	/// Should the Column wrap when there are too many elements?
+	wrapping: bool = false,
+};
+
+const Expand = enum {
+    /// Each child gets attributed its minimum size
+    No,
+    /// All children act like they're expanded, that is they take as much space as they can.
+    Fill,
+};
 ```
 
 ## Examples

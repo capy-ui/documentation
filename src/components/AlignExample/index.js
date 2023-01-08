@@ -50,11 +50,15 @@ export default class AlignExample extends React.Component {
           </div>
         </Resizable>
         <input type="range" min="0" max="1" value={this.state.alignX} onChange={this.changeAlignX} step="0.02" />
-        <span>alignX = {this.state.alignX}</span>
+        <span><code>Align.x</code> = {this.state.alignX}</span>
         <br></br>
 
         <input type="range" min="0" max="1" value={this.state.alignY} onChange={this.changeAlignY} step="0.02" />
-        <span>alignY = {this.state.alignY}</span>
+        <span><code>Align.y</code> = {this.state.alignY}</span>
+        <pre>{`Align(
+  .{ .x = `}{this.state.alignX}{`, .y = `}{this.state.alignY}{` },
+  Button(.{ .label = "Bloody hell" })
+);`}</pre>
 
         <p>Here's the equivalent code in CSS:</p>
         <pre>{`button {

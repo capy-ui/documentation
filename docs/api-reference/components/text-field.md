@@ -18,7 +18,7 @@ struct {
 ## Properties
 Name | Type | Description
 ---- | ----- | -----------
-`text` | `[]const u8` | The text this TextField contains.
+`text` | `[]const u8` | The text this TextField contains
 `readOnly` | `bool` | Whether the TextField is read-only
 
 Reminder: each property has get, set and bind methods, so there are `getText() []const u8`, `setText([]const u8)` and

@@ -105,15 +105,16 @@ var b = DataWrapper([]const u8).of("Hello");
 
 var c = DataWrapper(u64).of(undefined);
 c.dependOn(.{ a, b }, cFunction);
-// now c is equal to 6
+// now c is equal to 6 because 1 + 5 = 6
 
 fn cFunction(a: u64, b: []const u8) u64 {
 	return a + b.len;
 }
 
 a.set(5);
+// now c is equal to 10
 b.set("no");
-// now c is equal to 7
+// and now c is equal to 7
 ```
 
 ### deinit

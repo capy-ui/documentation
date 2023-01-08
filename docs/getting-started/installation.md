@@ -60,10 +60,9 @@ index 29b50b5..ccbb74b 100644
 
 -    const exe = b.addExecutable("$", "src/main.zig");
 +    const exe = b.addExecutable("capy-template", "src/main.zig");
-+    const pathToCapy = ".zigmod/deps/git/github.com/zenith391/capy/";
      exe.setTarget(target);
      exe.setBuildMode(mode);
-+    try deps.imports.capy.install(exe, pathToCapy);
++    try deps.imports.capy.install(exe, .{});
      exe.install();
 ```
 And in your `zigmod.yml` file, add:
