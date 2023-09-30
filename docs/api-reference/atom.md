@@ -1,22 +1,22 @@
-# DataWrapper
+# Atom
 Wrapper used to add binding, change listener, thread safety and animation capabilities to a value. It is used for all component properties.
 
 For a guide on how to use it, see [Data binding and properties](../guides/data-binding).
 
 ---
-DataWrapper is a generic struct, which means you need to put the type `T` of your data in
-`DataWrapper(T)`.
+Atom is a generic struct, which means you need to put the type `T` of your data in
+`Atom(T)`.
 
-Then you can use `DataWrapper.of` in order to get a data wrapper for the given value.
+Then you can use `Atom.of` in order to get a data wrapper for the given value.
 
 With an `u64` this would look like:
 ```zig
-var property = DataWrapper(u64).of(123);
+var property = Atom(u64).of(123);
 ```
 
 ## Functions
 
-Note that *Self* refers to *DataWrapper(T)*
+Note that *Self* refers to *Atom(T)*
 
 ### animate
 
@@ -25,7 +25,7 @@ fn animate(self: *Self, easing: Easing, target: T, duration: u64) void
 ```
 Easing is equivalent to `*const fn(f64) f64` (a function that takes a `f64` and returns a `f64`).
 
-This function starts an animation on the DataWrapper's value from the current value to
+This function starts an animation on the Atom's value from the current value to
 `target` and lasting `duration` milliseconds.
 
 Capy has a few preset easings:
@@ -39,7 +39,7 @@ Capy has a few preset easings:
 ```zig
 fn hasAnimation(self: *Self) bool
 ```
-Returns `true` if the DataWrapper is currently in an animation.  
+Returns `true` if the Atom is currently in an animation.  
 On the other hand it returns `false` if the animation ended or if there has been no animation.
 
 ### addChangeListener
@@ -55,7 +55,7 @@ pub const ChangeListener = struct {
 };
 ```
 
-The function is called with userdata every time the value of the DataWrapper changes.
+The function is called with userdata every time the value of the Atom changes.
 
 ### bind
 ```zig
@@ -100,11 +100,11 @@ on the given parameters, it can only be reverted by calling set()
 
 For example:
 ```zig
-var a = DataWrapper(u64).of(1);
-var b = DataWrapper([]const u8).of("Hello");
+var a = Atom(u64).of(1);
+var b = Atom([]const u8).of("Hello");
 
-var c = DataWrapper(u64).of(undefined);
-c.dependOn(.{ a, b }, cFunction);
+var c = Atom(u64).of(undefined);
+try c.dependOn(.{ &a, &b }, cFunction);
 // now c is equal to 6 because 1 + 5 = 6
 
 fn cFunction(a: u64, b: []const u8) u64 {
@@ -121,6 +121,6 @@ b.set("no");
 ```zig
 fn deinit(self: *Self) void
 ```
-Deallocates all resources previously allocated by this DataWrapper.
+Deallocates all resources previously allocated by this Atom.
 
 Must be called when its lifetime ends.
