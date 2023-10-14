@@ -31,7 +31,7 @@ pub usingnamespace capy.cross_platform;
 pub fn main() !void {
 	var window = try capy.Window.init();
 
-	window.resize(800, 600);
+	window.setPreferredSize(800, 600);
 	window.show();
 	capy.runEventLoop();
 }
@@ -65,7 +65,7 @@ const capy = @import("capy");
 pub usingnamespace capy.cross_platform;
 
 pub fn main() !void {
-	window.resize(800, 600);
+	window.setPreferredSize(800, 600);
 	try window.set(
     	capy.Button(.{ .label = "A Button" })
 	);
