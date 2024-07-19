@@ -32,7 +32,7 @@ diff --git a/build.zig b/build.zig
 +++ b/build.zig
 @@ -1,6 +1,7 @@
  const std = @import("std");
-+const capy = @import("capy"); // the build script for capy
++const build_capy = @import("capy"); // the build script for capy
 
 -pub fn build(b: *std.build.Builder) void {
 +pub fn build(b: *std.build.Builder) !void {
@@ -51,12 +51,20 @@ diff --git a/build.zig b/build.zig
      });
      b.installArtifact(exe);
 
++    const capy_dep = b.dependency("capy", .{
++      .target = target,
++      .optimize = optimize,
++      .app_name = @as([]const u8, "Your Application"),
++    });
++    const capy = capy_dep.module("capy");
++    exe.root_module.addImport("capy", capy);
+
 -    const run_cmd = b.addRunArtifact(exe);
 -    run_cmd.step.dependOn(b.getInstallStep());
 -    if (b.args) |args| {
 -        run_cmd.addArgs(args);
 -    }
-+    const run_cmd = try capy.install(exe, .{ .args = b.args });
++    const run_cmd = try build_capy.runStep(exe, .{ .args = b.args });
 
      const run_step = b.step("run", "Run the app");
      run_step.dependOn(&run_cmd.step);
