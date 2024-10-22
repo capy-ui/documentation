@@ -6,13 +6,14 @@ const capy = @import("capy");
 pub usingnamespace capy.cross_platform;
 
 pub fn main() !void {
-    try capy.backend.init();
+    try capy.init();
 }
 ```
-The use of `pub usingnamespace capy.cross_platform;` is useful for making your GUI work on some platform with
-different ways of workings, like WebAssembly
+The use of `pub usingnamespace capy.cross_platform;` is useful for making your GUI work on some
+platform with different ways of workings, like WebAssembly
 
-Using `capy.backend.init()` initializes the backend. This is necessary on all platforms. Otherwise, Capy *will* crash.
+Using `capy.init()` initializes capy. This is necessary on all platforms. Otherwise, Capy *will*
+crash.
 
 To execute the app, you have to type the following command
 ```sh
@@ -21,16 +22,17 @@ zig build run
 
 ## Creating a window
 
-Now it might be interesting for the program to actually do something, like displaying a window
+It might be interesting for the program to actually do something, like displaying a window
 
-For that, you can init a window, set its size and display it.
+For that, you can inititialize a window, set its size and display it.
 ```zig title="src/main.zig"
 const capy = @import("capy");
 pub usingnamespace capy.cross_platform;
 
 pub fn main() !void {
+	try capy.init();
+	
 	var window = try capy.Window.init();
-
 	window.setPreferredSize(800, 600);
 	window.show();
 	capy.runEventLoop();
@@ -41,12 +43,13 @@ Running this shows an empty window.
 
 ![An empty window on Linux](https://raw.githubusercontent.com/zenith391/zgt/master/.github/empty_window.png)
 
-Also note that the program calls the function `capy.runEventLoop()`. You need to use it in order to start the event loop so the app can listen to the OS and not have an unresponsive window.
+Notice that we added a call to the function `capy.runEventLoop()`. You need to use it in order to
+start the event loop, which lets the app listen to the OS and avoids having an unresponsive window.
 
 ## Adding a button
 
 This is nice, but an empty window is as useful as an unwearable shoe. Adding a button seems like the next logical step.  
-For that, we can use the `window.set()` function and the `Button` widget to see how to initialize a widget.
+For that, we can use the `window.set()` function and the [`Button`](https://capy-ui.org/api-reference/#capy.components.Button.Button) widget to see how to initialize a widget.
 
 First, in `capy` you create a widget using a function. So for a button, we would use `Button( something here )`.
 Widgets are configured using a single struct that is always placed first. For now, we will only use the `label` field.
@@ -55,11 +58,12 @@ This means we can easily have a labelled button `Button(.{ .label = "A Button" }
 
 :::note
 
-In the documentation, `anywidget`, which is implemented using `anytype`, refers to any widget constructed with their function or the [Widget](https://github.com/capy-ui/capy/wiki/Widget) type.
+In the documentation, `anywidget`, which is implemented using `anytype`, refers to any widget
+constructed with their function or the [Widget](https://capy-ui.org/api-reference/#capy.widget.Widget) type.
 
 :::
 
-So let's set `capy.Button(.{ .label = "A Button" })` as our window's widget:
+So let's set `capy.button(.{ .label = "A Button" })` as our window's widget:
 ```zig title="src/main.zig"
 const capy = @import("capy");
 pub usingnamespace capy.cross_platform;
@@ -67,7 +71,7 @@ pub usingnamespace capy.cross_platform;
 pub fn main() !void {
 	window.setPreferredSize(800, 600);
 	try window.set(
-    	capy.Button(.{ .label = "A Button" })
+    	capy.button(.{ .label = "A Button" })
 	);
 	window.show();
 }
@@ -75,4 +79,4 @@ pub fn main() !void {
 
 ![A window with a button saying "A Button" on KDE (Linux)](https://raw.githubusercontent.com/zenith391/zgt/master/.github/window_with_a_button.png)
 
-For how to use Capy to make more things, you can look at the [available examples](https://github.com/zenith391/zgt/tree/master/examples) which feature animations ([colors.zig](https://github.com/zenith391/zgt/blob/master/examples/colors.zig)), custom components example ([graph.zig](https://github.com/zenith391/zgt/blob/master/examples/graph.zig)), and a [simple calculator](https://github.com/zenith391/zgt/blob/master/examples/calculator.zig).
+To know how to use Capy to make more things, you can look at the [available examples](https://github.com/capy-ui/capy/tree/master/examples) which feature animations ([colors.zig](https://github.com/capy-ui/capy/blob/master/examples/colors.zig)), custom components ([graph.zig](https://github.com/capy-ui/capy/blob/master/examples/graph.zig)), and a [simple calculator](https://github.com/capy-ui/capy/blob/master/examples/calculator.zig).

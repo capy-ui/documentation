@@ -18,7 +18,7 @@ in other situations.
 But there is exactly one context that Capy handles: the GUI context, and there's no utility in
 changing allocator between different components. Allocating a `Button` on an `ArenaAllocator` and
 then allocating a `Container` on a `GeneralPurposeAllocator` would indeed be a fun exercise, but a
-futile one. It would also make everything unneedlessly complex. What happens if I put that `Button`
+futile one. It would also make everything needlessly complex. What happens if I put that `Button`
 in the `Container`, and then close the `ArenaAllocator` (which has the effect of also deallocating
 `Button`) ?
 
@@ -26,20 +26,20 @@ This is a very complicated case to handle, and it would make multiple allocators
 use anyways. Hence the choice to not allow them.
 
 ### Why Not Throw Errors On Memory Failure ?
-This is a tradeoff that I decided early on in Capy's development. Given the platforms that Capy targets
-(Desktop, Mobile, Web), memory allocation ought not to be a major concern. Thoses are platforms which
-usually have several gigabytes of RAM and a virtual memory system. So the risk of having an out of
-memory error is low to non-existent.  
+This is a tradeoff that I decided early on in Capy's development. Given the platforms that Capy
+targets (Desktop, Mobile, Web), memory allocation ought not to be a major concern. Those are
+platforms which usually have several gigabytes of RAM and a virtual memory system. So the risk of
+having an out of memory error is low to non-existent.
 Even if your application is memory-hungry, as long as you leave several megabytes available to Capy,
 it shouldn't pose any problem.
 
 > But even if out of memory errors almost never happen, why remove the ability to catch them ?
 
 That's because I have to make tradeoffs for the sake of Developer Experience (making code easy to
-read and easy to write), otherwise we'd end up having to manage every resource like in Assembly code.
-In fact, Zig itself makes tradeoffs for DX (Developer Experience): it doesn't force you to handle
-stack overflow error, you don't have to add a `catch` clause everytime you create a new variable.
-Yet, stack overflows exist, rarely, but they do. But a tradeoff was necessary to make.
+read and easy to write), otherwise we'd end up having to manage every resource like in Assembly
+code. In fact, Zig itself makes tradeoffs for DX (Developer Experience): it doesn't force you to
+handle stack overflow errors, you don't have to add a `catch` clause everytime you create a new
+variable. Yet, stack overflows exist, rarely, but they do. But a tradeoff had to be made.
 
 Capy is in the same situation, and so doesn't handle out of memory errors.
 

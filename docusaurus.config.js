@@ -55,7 +55,7 @@ const config = {
         title: '',
         logo: {
           alt: 'Capy UI',
-          src: '../img/capy_big.png',
+          src: '../img/capy_big2.png',
         },
         items: [
           {
